@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Website</title>
+    <!-- Link css -->
+    <link rel="stylesheet" href="../file_CSS/Home_page.css">
+    <!-- Link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12 fixed-top">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
+                        <!-- Logo -->
+                        <div class="logo col-lg-1 col-1 col-sm-2 d-flex justify-content-center align-items-center">
+                            <div class="logo-container">
+                                <span class="logo-text">F4</span>
+                            </div>
+                        </div>
+                        <!-- Admin -->
+                        <div class="col-lg-11 col-11 d-flex justify-content-end pe-3">
+                            <button class="btn d-flex align-items-center justify-content-center btn-danger"
+                                onclick="logout()">Logout</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Để nội dung bên dưới không bị đè khi dùng fixed-top -->
+            <div style="height: 78px;"></div>
+        </div>
+
+        <!-- Sidebar và Main -->
+        <div class="container-fluid p-0">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-1 col-lg-1 col-sm-2 px-sm-2 px-0 bg-white position-fixed">
+                    <div class="d-flex flex-column align-items-center pt-5 text-light">
+                        <ul
+                            class="nav nav-pills nav-fill mb-sm-auto mb-0 d-flex justify-content-center align-items-center flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../file_html/user.html">USER</a>
+                            </li>
+                            <li class="nav-item pt-4">
+                                <a class="nav-link active" href="../file_html/product.html">PRODUCT</a>
+                            </li>
+                            <li class="nav-item pt-4">
+                                <a class="nav-link" href="../file_html/order.html">ORDER</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="col-11 col-lg-11 col-sm-10 px-sm-10 bg-white offset-1 offset-lg-1 offset-sm-3">
+                    <!-- Đây là phần nội dung chính của trang -->
+                    <div class="overflow-auto">
+                        <div class="container" id="ShowProduct"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal delete -->
+    <div class="modal" id="myDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Delete Product</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Do you want to delete the product?
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                        id="deleteConfirmButton">OK</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add_Product -->
+    <div class="modal fade" id="add_Product" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form action="" id="product_From">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="product_name">Product Name</label>
+                            <input type="text" name="product_name" class="form-control" id="product_name"
+                                placeholder="Enter Product">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image">Image</label>
+                            <input type="text" name="image" class="form-control" id="image" placeholder="Enter Image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Price">Price</label>
+                            <input type="number" name="Price" class="form-control" id="Price" placeholder="Enter Price">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" class="form-control" id="description"
+                                placeholder="Enter Description">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category">Category</label>
+                            <select class="form-select" aria-label="Default select example" id="category">
+                                <option value="1">fashion</option>
+                                <option value="2">sport</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="size">Size</label>
+                            <select class="form-select" aria-label="Default select example" id="size">
+                                <option value="1">S</option>
+                                <option value="2">M</option>
+                                <option value="3">L</option>
+                                <option value="4">XL</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender">Gender</label>
+                            <select class="form-select" aria-label="Default select example" id="gender">
+                                <option value="1">men</option>
+                                <option value="2">women</option>
+                                <option value="3">unisex</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brand">Brand</label>
+                            <input type="text" name="brand" class="form-control" id="brand" placeholder="Enter  Brand">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status">Status</label>
+                            <select class="form-select" aria-label="Default select example" id="choose">
+                                <option value="1">Active</option>
+                                <option value="2">inactive</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" name="quantity" class="form-control" id="quantity"
+                                placeholder="Enter quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sold">Sold</label>
+                            <input type="number" name="sold" class="form-control" id="sold" placeholder="Enter sold">
+                        </div>
+                        <div class="mb-3">
+                            <label for="viewer">Viewer</label>
+                            <input class="form-control" type="text" placeholder="0" aria-label="Disabled input example"
+                                disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="createAt">CreateAt</label>
+                            <input type="text" name="createAt" class="form-control" id="createAt"
+                                placeholder="Enter  createAt">
+                        </div>
+                        <button type="button" class="btn btn-success mx-auto w-100" data-bs-dismiss="modal"
+                            onclick=addProduct()>Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- modal update -->
+    <div class="modal" id="myUpdate">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Update Product</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="id_modal" class="form-label">ID:</label>
+                            <input class="form-control" type="text" id="id_modal" aria-label="Disabled input example"
+                                disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productname_modal" class="form-label">ProductName:</label>
+                            <input type="text" class="form-control" id="productname_modal" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="linkimg_modal" class="form-label">Link img:</label>
+                            <input type="text" class="form-control" id="linkimg_modal" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="price_modal" class="form-label">Price:</label>
+                            <input type="number" class="form-control" id="price_modal" value="quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description_modal" class="form-label">Description:</label>
+                            <input type="text" class="form-control" id="description_modal" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category_modal" class="form-label">Category:</label>
+                            <input type="text" class="form-control" id="category_modal" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="size_modal" class="form-label">Size:</label>
+                            <div class="input-group">
+                                <select class="form-select" id="size_modal">
+                                    <option>S</option>
+                                    <option>M</option>
+                                    <option>L</option>
+                                    <option>XL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="brand_modal" class="form-label">Brand:</label>
+                            <input type="text" class="form-control" id="brand_modal" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status_modal" class="form-label"> Status:</label>
+                            <div class="input-group">
+                                <select class="form-select" id="status_modal">
+                                    <option>active</option>
+                                    <option>unactive</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="gender_modal" class="form-label"> Gender:</label>
+                            <div class="input-group">
+                                <select class="form-select" id="gender_modal">
+                                    <option>men</option>
+                                    <option>women</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity_modal" class="form-label">Quantity:</label>
+                            <input type="number" class="form-control" id="quantity_modal" value="quantity">
+                        </div>
+                        <div class="mb-3">
+                            <label for="sold_modal" class="form-label">Sold:</label>
+                            <input type="number" class="form-control" id="sold_modal" value="quantity">
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="save_button">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="py-3" style="background-color:  #5c9646;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">F4 Team</h6>
+                    <p>
+                        Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit.
+                    </p>
+                </div>
+                <div class="col-md-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Women</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Fashion shoes</a></li>
+                        <li><a href="#" class="text-dark">Sport shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Men</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Fashion shoes</a></li>
+                        <li><a href="#" class="text-dark">Sport shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-map-marker pe-3 fa-lg text-danger" aria-hidden="true"></i> 101B-Lê Hữu
+                            Trác-Sơn Trà-Đà Nẵng</li>
+                        <li><i class="fa fa-envelope pe-2 fa-lg text-danger" aria-hidden="true"></i>
+                            nhat.nguyenvantuong@gmail.com</li>
+                        <li><i class="fa fa-phone  pe-2 fa-lg text-danger" aria-hidden="true"></i> + 01 234 567 88</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-3" style="color: black;">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-7 text-center text-md-start">
+                    <div class="p-3">
+                        Team F4 <a href="#" class="text-white">Here</a>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center text-md-end">
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-facebook-square text-primary fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-twitter-square text-info fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-google-plus-square text-danger fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-instagram text-warning fa-lg" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Script product -->
+    <script src="../file_JS//Product.js"></script>
+    <!-- Script login_out_up -->
+    <script src="../file_JS/Login_out_up.js"></script>
+</body>
+
+</html>

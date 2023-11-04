@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Men</title>
+    <!-- Link css -->
+    <link rel="stylesheet" href="../file_CSS/Home_page.css">
+    <link rel="stylesheet" href="../file_CSS/Contact.css">
+    <!-- Link icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12 fixed-top">
+                <div class="row border-bottom">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
+                        <!-- Logo -->
+                        <div class="logo col-lg-1 col-1 col-sm-2 d-flex justify-content-center align-items-center">
+                            <div class="logo-container">
+                                <span class="logo-text">F4</span>
+                            </div>
+                        </div>
+                        <!-- Tìm kiếm -->
+                        <div class="search col-lg-7 col-7 col-sm-6 d-flex justify-content-center align-items-center">
+                            <div class="search-bar col-6">
+                                <span class="search-icon">
+                                    <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                                </span>
+                                <input type="text" class="search-input" placeholder="Search">
+                            </div>
+                        </div>
+                        <!-- Login/ register -->
+                        <div class="col-4 d-flex p-3 gap-5 justify-content-end">
+                            <button type="button" class="btn btn-success col-2 w-25" data-bs-toggle="modal"
+                                data-bs-target="#login_form">Login</button>
+                            <button type="button" class="btn btn-success col-2 w-25" data-bs-toggle="modal"
+                                data-bs-target="#signup_form">Register</button>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+            <!-- Để nội dung bên dưới ko bị đè khi dùng flexed-top -->
+            <div style="height: 88px;"></div>
+        </div>
+
+        <!-- Sidebar và Main -->
+        <div class="container-fluid p-0">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-1 col-lg-1 col-sm-2 px-sm-2 px-0 bg-white position-fixed">
+                    <div class="d-flex flex-column align-items-center pt-2 text-light">
+                        <ul
+                            class="nav nav-pills nav-fill mb-sm-auto mb-0 d-flex justify-content-center align-items-center flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../file_html/Home_page.html">HOME</a>
+                            </li>
+                            <li class="nav-item pt-4">
+                                <a class="nav-link" data-bs-toggle="modal" data-bs-target="#formModal">CONTACT</a>
+                            </li>
+                            <li class="nav-item pt-4">
+                                <a class="nav-link" href="../file_html/Women.html">WOMEN</a>
+                            </li>
+                            <li class="nav-item pt-4">
+                                <a class="nav-link active" href="../file_html/Men.html">MEN</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Main Content -->
+                <div class="col-11 col-lg-11 col-sm-10 px-sm-10 bg-white offset-1 offset-lg-1 offset-sm-3">
+                    <!-- Đây là phần nội dung chính của trang -->
+                    <div class="overflow-auto">
+                        <!-- nd trai va phai -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p class="left-text"><b>FASHION SHOES</b></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="right-text"><b>SPORT SHOES</b></p>
+                                </div>
+                            </div>
+                            <!-- Nội dung chung -->
+                            <div class="row content-row" data-bs-toggle="modal" data-bs-target="#modalDetail"
+                                id="cards_overview"></div>
+                            <!-- Bên trái-->
+                            <div class="row left-row" data-bs-toggle="modal" data-bs-target="#modalDetail"
+                                id="cards_left"></div>
+                            <!-- Bên phải -->
+                            <div class="row right-row" data-bs-toggle="modal" data-bs-target="#modalDetail"
+                                id="cards_right"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Contact -->
+    <div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="formModalLabel">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+
+                            <div class="col-md-4">
+                                <div class="contact-info">
+                                    <img src="https://image.ibb.co/kUASdV/contact-image.png" alt="image" />
+                                    <h2>Contact Us</h2>
+                                    <h4>We would love to hear from you!</h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                <div class="contact-form">
+
+                                    <div class="mb-3">
+                                        <label for="fname" class="form-label">First Name:</label>
+                                        <input type="text" class="form-control" id="fname"
+                                            placeholder="Enter First Name" name="fname">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="lname" class="form-label">Last Name:</label>
+                                        <input type="text" class="form-control" id="lname" placeholder="Enter Last Name"
+                                            name="lname">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email:</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email"
+                                            name="email">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="comment" class="form-label">Comment:</label>
+                                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal detail-->
+    <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="modalDetailLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" id="detai_product">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal checkout-->
+    <div class="modal fade" id="checkout_form" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Checkout Form -->
+                <div class="modal-create-user">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Check out form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="r_name">Recipient's name<span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control" id="r_name"
+                                placeholder="Enter the recipient's name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="d_a">Delivery address<span class="text-danger">*</span></label>
+                            <input type="text" name="address" class="form-control" id="d_a"
+                                placeholder="Enter the shipping address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="r_ph">Recipient phone number<span class="text-danger">*</span></label>
+                            <input type="text" name="ph" class="form-control" id="r_ph"
+                                placeholder="Enter the recipient's phone number">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pay">Payment methods<span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <select class="form-select" id="pay">
+                                    <option>COD</option>
+                                    <option>QR code</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <b class="text-start">Total:</b>
+                            <b class="text-end" id="cost"></b>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-around">
+                    <button type="button" class="btn btn-success w-100" onclick="checkOut_BuyNow()">Check out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form Login -->
+    <div class="modal fade" id="login_form" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Login Form -->
+                <form action="">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Please come with us</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="Username">Username<span class="text-danger">*</span></label>
+                            <input type="text" name="username" class="form-control" id="Username"
+                                placeholder="Enter Username">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="Password">Password<span class="text-danger">*</span></label>
+                            <input type="password" name="password" class="form-control" id="Password"
+                                placeholder="Enter Password">
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-check-input" type="checkbox" value="" id="remember" required>
+                            <label class="form-check-label" for="remember">Remember Me</label>
+                            <a href="#" class="float-end">Forgot Password</a>
+                        </div>
+                        <button type="button" class="btn btn-success mx-auto w-100" id="login-btn">Login</button>
+                    </div>
+                    <div class="modal-footer justify-content-around">
+                        <div class="row">
+                            <div class="col-lg-6 col-6 pb-3">
+                                <a class="btn btn-primary btn-lg btn-block d-flex align-items-center"
+                                    style="background-color:white" href="#!" role="button">
+                                    <img class="img-fluid me-4" width="20" height="20"
+                                        src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png">
+                                    <span style="color: black;">Facebook</span>
+                                </a>
+                            </div>
+
+                            <div class="col-lg-6 col-6 pb-3">
+                                <a class="btn btn-primary btn-lg btn-block d-flex align-items-center"
+                                    style="background-color:white" href="#!" role="button">
+                                    <img class="img-fluid me-4" width="20" height="20"
+                                        src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png">
+                                    <span style="color: black;">Google</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <p class="text-center">Not yet account, <a href="#">Signup</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Form Signup -->
+    <div class="modal fade" id="signup_form" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <!-- Signup Form -->
+                <div class="modal-create-user">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Signup Form</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="u">Username<span class="text-danger">*</span></label>
+                            <input type="text" name="u" class="form-control" id="u" placeholder="Enter Username">
+                        </div>
+                        <div class="mb-3">
+                            <label for="a">Address<span class="text-danger">*</span></label>
+                            <input type="text" name="a" class="form-control" id="a" placeholder="Enter Address">
+                        </div>
+                        <div class="mb-3">
+                            <label for="ph">Phone<span class="text-danger">*</span></label>
+                            <input type="number" name="ph" class="form-control" id="ph" placeholder="Enter Phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="e">Email<span class="text-danger">*</span></label>
+                            <input type="text" name="e" class="form-control" id="e" placeholder="Enter Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pa">Password<span class="text-danger">*</span></label>
+                            <input type="password" name="pa" class="form-control" id="pa" placeholder="Enter Password">
+                        </div>
+                        <button class="btn btn-success mx-auto w-100" onclick="register()">Register</button>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-around">
+                    <div class="row">
+                        <div class="col-lg-6 col-6 pb-3">
+                            <a class="btn btn-primary btn-lg btn-block d-flex align-items-center"
+                                style="background-color:white" href="#!" role="button">
+                                <img class="img-fluid me-4" width="20" height="20"
+                                    src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png">
+                                <span style="color: black;">Facebook</span>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-6 col-6 pb-3">
+                            <a class="btn btn-primary btn-lg btn-block d-flex align-items-center"
+                                style="background-color:white" href="#!" role="button">
+                                <img class="img-fluid me-4" width="20" height="20"
+                                    src="https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png">
+                                <span style="color: black;">Google</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+                <p class="text-center">Already have an account?</p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="py-3" style="background-color:  #5c9646;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">F4 Team</h6>
+                    <p>
+                        Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit.
+                    </p>
+                </div>
+                <div class="col-md-2 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Women</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Fashion shoes</a></li>
+                        <li><a href="#" class="text-dark">Sport shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Men</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-dark">Fashion shoes</a></li>
+                        <li><a href="#" class="text-dark">Sport shoes</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mx-auto mt-3">
+                    <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-map-marker pe-3 fa-lg text-danger" aria-hidden="true"></i> 101B-Lê Hữu
+                            Trác-Sơn Trà-Đà Nẵng</li>
+                        <li><i class="fa fa-envelope pe-2 fa-lg text-danger" aria-hidden="true"></i>
+                            nhat.nguyenvantuong@gmail.com</li>
+                        <li><i class="fa fa-phone  pe-2 fa-lg text-danger" aria-hidden="true"></i> + 01 234 567 88</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-3" style="color: black;">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-7 text-center text-md-start">
+                    <div class="p-3">
+                        Team F4 <a href="#" class="text-white">Here</a>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center text-md-end">
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-facebook-square text-primary fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-twitter-square text-info fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-google-plus-square text-danger fa-lg" aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-floating m-1">
+                        <i class="fa fa-instagram text-warning fa-lg" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Men -->
+    <script src="../file_JS/Men.js"></script>
+    <!-- Script Log_in_out_up -->
+    <script src="../file_JS/Login_out_up.js"></script>
+    <!-- Script Detail -->
+    <script src="../file_JS/Detail.js"></script>
+    <!-- Script BuyNow_checkout -->
+    <script src="../file_JS/BuyNow_checkout.js"></script>
+    <!-- Script jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Script thanh điều hướng lựa chọn -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
